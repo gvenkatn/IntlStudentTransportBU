@@ -1,0 +1,51 @@
+God Bless!
+To do!
+
+Student
+All are required fields 
+- Name
+- Binghamton Number
+- Name
+- Username
+- Password
+- Binghamton Email
+- Mobile Number 
+- Gender
+- Country
+- State
+- City
+- Address
+- Nationality
+- Comfortable languages
+
+Trip
+- Flight
+- Flight Number
+- Seat*
+- Airport
+- Date
+- Estimated Arrival Time
+- Number of Bags
+
+Group
+- Created by
+- Number of Users
+- Bus / Car / AirTrain
+- Trip Date
+- Trip Time
+- Airport
+- Meeting point
+- From
+- To
+- Languages
+- Travel Plan Description
+- Luggage
+
+Pages
+1) Student sign-up & login (Registration Page)
+2) Student Profile Page
+3) Find trips
+    - Filter by Airport
+    - Filter by Date
+    - Filter by From
+    - Filter by To

@@ -1,0 +1,217 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Responsive Registration Form | CodingLab </title>
+    <link rel="stylesheet" href="style.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+   <body>
+   
+    <div class="wrapper">
+    <center> <img src = "{% static 'student/GB_logo.png' %}"></center>
+     <br>
+    <center>
+      <button class="button-36" onclick="location.href='{% url 'trips' %}'" role="button">
+      Search trips </button>
+    </center>
+    <br>
+    <center> 
+      <button class="button-37" onclick="location.href='{% url 'new_trip' %}'" role="button">
+      New trip</button>
+    </center>
+      
+    </div>
+  </body>
+  
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+}
+body{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: linear-gradient(135deg, #000000, #058f33);
+}
+.wrapper{
+  position: relative;
+  max-width: 430px;
+  width: 100%;
+  background: #fff;
+  padding: 34px;
+  border-radius: 6px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  margin: 20px;
+}
+.container{
+  max-width: 700px;
+  width: 100%;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+.container .title{
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+.container .title::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #000000, #058f33);
+}
+.content form .user-details{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
+}
+form .user-details .input-box{
+  margin-bottom: 15px;
+  width: calc(100% / 2 - 20px);
+}
+.wrapper form{
+  margin-top: 30px;
+}
+.wrapper form .input-box{
+  height: 52px;
+  margin: 18px 0;
+}
+form .input-box input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding: 0 15px;
+  font-size: 17px;
+  font-weight: 400;
+  color: #333;
+  border: 1.5px solid #C7BEBE;
+  border-bottom-width: 2.5px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+.input-box input:focus,
+.input-box input:valid{
+  border-color: #4070f4;
+}
+form .policy{
+  display: flex;
+  align-items: center;
+}
+form h3{
+  color: #707070;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 10px;
+}
+.input-box.button input{
+  color: #fff;
+  letter-spacing: 1px;
+  border: none;
+  background: #1c7028;
+  cursor: pointer;
+}
+.input-box.button input:hover{
+  background: #0ca929;
+}
+form .text h3{
+ color: #333;
+ width: 100%;
+ text-align: center;
+}
+form .text h3 a{
+  color: #3b7433;
+  text-decoration: none;
+}
+form .text h3 a:hover{
+  text-decoration: underline;
+}
+.button-37 {
+  background-color: #13aa52;
+  border: 1px solid #13aa52;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  padding: 10px 25px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-37:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .button-37 {
+    padding: 10px 30px;
+  }
+}
+
+.button-36 {
+  background-color: #000000;
+  border: 1px solid #2e2e2e;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  padding: 10px 25px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-36:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .button-36 {
+    padding: 10px 30px;
+  }
+}
+
+
+
+
+
+
+
+</style>
+</html>
