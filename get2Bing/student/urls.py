@@ -8,8 +8,10 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('login/', views.loginpage, name='login'),
     path('login_success/', views.login_success, name='login_success'),
-    path('new_trip/', views.new_trip, name='new_trip'),
-    path('trips/', views.trips, name='trips'),
+    path('flight_details/', views.flight_details, name='flight_details'),
+    path('bus/', views.bus, name='bus'),
+    path('cab/', views.cab, name='cab'),
+    path('search_trips/', views.search_trips, name='search_trips'),
     path('logout/', views.LogoutView, name='logout'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.

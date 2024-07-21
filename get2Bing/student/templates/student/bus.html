@@ -8,7 +8,61 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
 <body>
-    
+  <div class="container">
+    <div class="title">Bus Details</div>
+    <div class="content">
+      {% if messages %}
+        {% for message in messages %}
+          <h2 style="color: #b22222;">{{message}}</h2>
+        {% endfor %}
+      {% endif %}
+      <form action="#" method="POST">
+        {% csrf_token %}
+        <div class="user-details">    
+          <div class="input-box">
+            <span class="details">Bus Company</span>
+            <input type="text" placeholder="e.g. Greyhound" name="bus_company">
+          </div>
+          <div class="input-box">
+            <span class="details">Bus Timing</span>
+            <input type="datetime-local" name="bus_timing">
+          </div>
+          <div class="input-box">
+            <span class="details">Meeting point</span>
+            <input type="text" placeholder="e.g. T4 Dunkin Donuts" name="meeting_point">
+          </div>
+          <div class="input-box">
+            <span class="details">New York Port Authority by</span>
+            <select name="nypa_travel" class="input-box selBox"> 
+                <option value="OBS">Direct to Binghamton/ OurBus</option>
+                <option value="AST">Airport Shuttle</option>
+                <option value="TRN">Air Train</option>
+                <option value="CAB">Cab or Uber or Lyft</option>
+                <option value="OTH">Other</option>
+            </select>
+          </div>
+          <div class="input-box">
+            <span class="details">Starting Time</span>
+            <input type="time" name="start_time">
+          </div>
+          <div class="input-box">
+            <span class="details">Travel Plan</span>
+            <input type="text" placeholder="e.g. Direct ride to University"  name="travel_plan">
+          </div>
+           
+          <div class="button-37">
+            <input class="button-37" type="submit" value="Create Trip">
+          </div>
+          
+        </div>
+        
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+  
 </body>
 
 <style>
@@ -60,11 +114,44 @@ form .user-details .input-box{
   margin-bottom: 15px;
   width: calc(100% / 2 - 20px);
 }
+
+.selBox{
+ /* font-weight: 500 !important; */
+ width: 100% !important;
+ height: 45px !important;
+}
 form .input-box span.details{
   display: block;
   font-weight: 500;
   margin-bottom: 5px;
 }
+.button-37 {
+  background-color: #13aa52;
+  border: 1px solid #13aa52;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  padding: 10px 25px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-37:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+
 .user-details .input-box input{
   height: 45px;
   width: 100%;
@@ -80,7 +167,7 @@ form .input-box span.details{
 .user-details .input-box input:valid{
   border-color: #058f33;
 }
- form .gender-details .gender-title{
+ form .trip-details .trip-title{
   font-size: 20px;
   font-weight: 500;
  }
@@ -152,11 +239,11 @@ form .user-details .input-box{
   .user-details::-webkit-scrollbar{
     width: 5px;
   }
-  }
+  
   @media(max-width: 459px){
   .container .content .category{
     flex-direction: column;
   }
-}
+}}
 </style>
 </html>
