@@ -12,6 +12,7 @@ urlpatterns = [
     path('bus/', views.bus, name='bus'),
     path('cab/', views.cab, name='cab'),
     path('search_trips/', views.search_trips, name='search_trips'),
+    path('trip_details/', views.trip_details, name='trip_details'),
     path('logout/', views.LogoutView, name='logout'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.

@@ -43,6 +43,7 @@ def register(request):
                     
         new_user.save()
         new_student.save()
+        return render(request, 'student/loginpage.html',{})
         
 
     return render(request, 'student/register.html',{})
@@ -58,7 +59,7 @@ def loginpage(request):
         validate_user = authenticate(username=username, password=password)
         if validate_user is not None:
             login(request, validate_user)
-            return redirect('trips')
+            return redirect('login_success')
         else:
             messages.error(request, 'Error, wrong user details or user does not exist')
             return redirect('login')
@@ -165,22 +166,58 @@ def cab(request):
 
 
 def search_trips(request):
-    # if request.method == 'POST':
-    #     task = request.POST.get('task')
-    #     new_todo = todo(user=request.user, todo_name=task)
-    #     new_todo.save()
-    
     flights = Flight.objects.all()
-    bus = Bus.objects.all()
-    cab = Cab.objects.all()
-    context = {
-        'flights' : flights,
-        'bus' : bus,
-        'cab' : cab
-    }
+    flights_data = flights
+
+    if request.method == 'POST':
+        print("POST")
+        if(request.POST.get('submit')):
+            print("SUBMIT")
+            airport = request.POST.get('airport')
+            flight = request.POST.get('flight')
+            flight_num = request.POST.get('flight_num')
+            is_cab = request.POST.get('is_cab')
+            dest = request.POST.get('dest')
+            date = request.POST.get('date')
+            print("flight", flight, "flight_num",flight_num,
+                "is_cab", is_cab,"dest", dest,"date", date)
+
+            if(airport != None):     
+                flights = flights.filter(airport=airport)
+            
+            if(flight != ""):
+                flights = flights.filter(flight=flight.upper())
+            
+            if(flight_num != ""):              
+                flights = flights.filter(flight_num= flight_num.upper())
+            
+            if(is_cab != None):
+                if(is_cab == "True"): is_cab = False
+                else: is_cab = True
+                flights = flights.filter(is_cab=is_cab)
+
+            if(dest != None):
+                flights = flights.filter(dest=dest)
+            
+            if(date != ""):
+                flights = flights.filter(arrival_date=date) 
+
+            flights_data = flights
+            context = {'flights_data' : flights_data}
+            print("Success")
+            return render(request, 'student/search_trips.html', context)
+
+        elif(request.POST.get('reset')):
+            flights_data = flights
+        
+    context = {'flights_data' : flights_data}
+
 
     return render(request, 'student/search_trips.html', context)
 
+def trip_details(request):
+
+    return render(request, 'student/trip_details.html', {})
 
 def LogoutView(request):
     logout(request)
